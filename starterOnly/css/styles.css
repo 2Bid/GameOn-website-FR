@@ -1,0 +1,9 @@
+.input-error {
+  display: none;
+  color: red;
+  font-size: 0.9rem;
+}
+
+.hero-img img{
+  object-fit: cover;
+}

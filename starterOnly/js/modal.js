@@ -10,13 +10,15 @@ function editNav() {
 // DOM Elements
 const modalbg = document.querySelector('.bground')
 const modalBtn = document.querySelectorAll('.modal-btn')
-const formData = document.querySelectorAll('.formData')
 const croix = document.querySelector('.close')
-const btnSubmit = document.querySelector('.btn-submit')
+const errors = document.getElementsByClassName('input-error')
 const last = document.querySelector('#last')
 
 // launch modal event
-modalBtn.forEach((btn) => btn.addEventListener('click', launchModal))
+for( let i = 0; i < modalBtn.length; i++){
+  const btn = modalBtn[i]
+  btn.addEventListener('click',launchModal)
+}
 
 // launch modal form
 function launchModal() {
@@ -28,13 +30,10 @@ croix.addEventListener('click', closeModal)
 
 function closeModal() {
   modalbg.style.display = 'none'
-}
 
-btnSubmit.addEventListener('click', function validate(e) {
-  if (!last.value) {
-    e.preventDefault()
-  } else if (!mail.value) {
-    e.preventDefault()
-  } else {
+  // reset message error
+  for (let i = 0; i < errors.length; i++) {
+    const error = errors[i];
+    error.style.display = 'none'
   }
-})
+}

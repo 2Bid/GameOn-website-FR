@@ -28,12 +28,4 @@ function launchModal() {
 // close modal
 croix.addEventListener('click', closeModal)
 
-function closeModal() {
-  modalbg.style.display = 'none'
 
-  // reset message error
-  for (let i = 0; i < errors.length; i++) {
-    const error = errors[i];
-    error.style.display = 'none'
-  }
-}

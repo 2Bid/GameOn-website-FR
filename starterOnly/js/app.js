@@ -1,13 +1,13 @@
 // DOM Elements
-// const modalbg = document.querySelector('.bground')
-// const modalBtn = document.querySelectorAll('.modal-btn') 
-// const croix = document.querySelector('.close')
+
 const btnSubmit = document.querySelector('.btn-submit')
+
 const nom = document.getElementById('last')
 const prenom = document.getElementById('first')
 const email = document.getElementById('email')
 const birthdate = document.getElementById('birthdate')
 const tournoi = document.getElementById('quantity')
+
 const errorName = document.getElementById('input-error-name')
 const errorPrenom = document.getElementById('input-error-prenom')
 const errorEmail = document.getElementById('input-error-email')
@@ -21,10 +21,77 @@ const inputform = document.querySelectorAll('.formData');
 const checkboxInput = document.querySelectorAll(".checkbox-input[type='radio']")
 const checkCondition = document.getElementById("checkbox1")
 
+const form = document.getElementById('form')
+const formValidation = document.querySelector('.formValidation')
+
+const BtnCloseModal =document.querySelector('.close-modal')
+
+function clearError(){
+  Array.prototype.forEach.call(
+    document.getElementsByClassName("input-error"),
+    function(el) { el.style.display = "none"; }
+);
+}
+
+function getCheckedCheckbox(){
+  for( const checkbox of checkboxInput ){
+    if(checkbox.checked){
+      return checkbox
+    }
+  }
+  return null
+}
+// close modal
+croix.addEventListener('click', closeModal)
+BtnCloseModal.addEventListener('click', closeModal)
+
+function closeModal() {
+  modalbg.style.display = 'none'
+
+  // reset message error
+  for (let i = 0; i < errors.length; i++) {
+    const error = errors[i];
+    error.style.display = 'none'
+  }
+}
+
 btnSubmit.addEventListener('click', function (e) {
   e.preventDefault()
   clearError()
+
+  if (!prenom.value || prenom.value.length <=  1) {
+     errorPrenom.style.display = 'block'
+   } if (!nom.value || nom.value.length <= 1) {
+    errorName.style.display = 'block'
+   } if (!email.value) {
+    errorEmail.style.display = 'block'
+   } if (!birthdate.value) {
+      errorBirthdate.style.display = 'block'
+   } if (!tournoi.value) {
+     errorQuantity.style.display = 'block'
+   }
+   const checkedCheckbox = getCheckedCheckbox()
+   if(!checkedCheckbox){
+	   errorTown.style.display ='block'
+   }
+   if(!checkCondition.checked){
+	   errorCondition.style.display ='block'
+   }
+
+    if(prenom.value.length >= 2 && nom.value.length >= 2 && email.value && birthdate.value && tournoi.value && checkedCheckbox && checkCondition.checked){
+      form.style.display ='none';
+      formValidation.style.display='block'
+    }
  
+})
+
+
+
+
+
+
+
+
   //parcourir enfant formData check input
   // const form = formData.children.input.value
   // console.log(form)
@@ -55,40 +122,3 @@ btnSubmit.addEventListener('click', function (e) {
 //   return input
   
 // })
-
-  function clearError(){
-    Array.prototype.forEach.call(
-      document.getElementsByClassName("input-error"),
-      function(el) { el.style.display = "none"; }
-  );
-}
-
-	function getCheckedCheckbox(){
-		for( const checkbox of checkboxInput ){
-			if(checkbox.checked){
-				return checkbox
-			}
-		}
-		return null
-	}
-
-  if (!prenom.value || prenom.value.lenght >=  2) {
-     errorPrenom.style.display = 'block'
-   } if (!nom.value || nom.value.lenght >= 2) {
-    errorName.style.display = 'block'
-   } if (!email.value) {
-    errorEmail.style.display = 'block'
-   } if (!birthdate.value) {
-      errorBirthdate.style.display = 'block'
-   } if (!tournoi.value) {
-     errorQuantity.style.display = 'block'
-   }
-   const checkedCheckbox = getCheckedCheckbox()
-   if(!checkedCheckbox){
-	   errorTown.style.display ='block'
-   }
-   if(!checkCondition.checked){
-	   errorCondition.style.display ='block'
-   }
-   console.log(checkedCondition)
-})

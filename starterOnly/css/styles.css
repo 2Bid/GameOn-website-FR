@@ -7,3 +7,21 @@
 .hero-img img{
   object-fit: cover;
 }
+
+.formValidation{
+  display: none;
+}
+.formValidation h5{
+  margin-top: 75px;
+}
+.formValidation button{
+  margin: 50px auto 0;
+}
+
+.icon i{
+  font-size: 30px;
+}
+
+@media screen and (max-width: 450px) {
+  
+}

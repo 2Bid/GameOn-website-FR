@@ -17,7 +17,7 @@ body {
   background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
-  max-width: 1300px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -39,6 +39,7 @@ img {
 }
 .main-navbar {
     float: right;
+    clear: left;
 }
 .topnav a {
   float: left;
@@ -68,20 +69,18 @@ img {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1150px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
     top: 0;
+  }
+  .topnav a {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
   }
   .topnav.responsive a {
     float: none;
@@ -89,14 +88,6 @@ img {
     text-align: left;
   }
 }
- @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-    /* margin-top: -15px; */
-  }
-} 
 
 main {
   font-size: 130%;
@@ -167,7 +158,9 @@ main {
 }
 
 .content {
-  margin: 5% auto;
+  margin: auto;
+  top : 50%;
+  transform: translateY(-50%);
   width: 100%;
   max-width: 500px;
   animation-name: modalopen;
@@ -412,7 +405,7 @@ input[data-error]::after {
 }
 .hero-content {
   padding: 51px 67px;
-  grid-column: span 4;
+  grid-column: span 5;
   background: #232323;
   color: #fff;
   position: relative;
@@ -425,7 +418,7 @@ input[data-error]::after {
   height: 100%;
   background: #232323;
   position: absolute;
-  right: -80px;
+  right: -50px;
   top: 0;
 }
 .hero-content > * {
@@ -435,7 +428,7 @@ input[data-error]::after {
 .hero-headline {
   font-size: 6rem;
   font-weight: normal;
-  white-space: nowrap;
+  width: 220%;
 }
 .hero-text {
   /* width: 146%; */
@@ -452,7 +445,7 @@ input[data-error]::after {
   margin-top: 59px;
 }
 .hero-img {
-  grid-column: span 8;
+  grid-column: span 7;
 }
 .hero-img img {
   width: 100%;
@@ -475,6 +468,7 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+
 @media screen and (max-width: 800px) {
   .hero-section {
     display: block;
@@ -494,6 +488,7 @@ footer {
   .hero-headline {
     font-size: 4.5rem;
     white-space: normal;
+    width: 100%;
   }
   .hero-text {
     width: unset;

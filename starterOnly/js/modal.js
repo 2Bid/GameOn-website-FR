@@ -1,3 +1,7 @@
+// DOM Elements
+const modalbg = document.querySelector('.bground')
+const modalBtn = document.querySelectorAll('.modal-btn')
+
 function editNav() {
   var x = document.getElementById('myTopnav')
   if (x.className === 'topnav') {
@@ -7,16 +11,9 @@ function editNav() {
   }
 }
 
-// DOM Elements
-const modalbg = document.querySelector('.bground')
-const modalBtn = document.querySelectorAll('.modal-btn')
-const croix = document.querySelector('.close')
-const errors = document.getElementsByClassName('input-error')
-const last = document.querySelector('#last')
-
 // launch modal event
 for( let i = 0; i < modalBtn.length; i++){
-  const btn = modalBtn[i]
+  const btn = modalBtn[i];
   btn.addEventListener('click',launchModal)
 }
 
@@ -24,8 +21,5 @@ for( let i = 0; i < modalBtn.length; i++){
 function launchModal() {
   modalbg.style.display = 'block'
 }
-
-// close modal
-croix.addEventListener('click', closeModal)
 
 

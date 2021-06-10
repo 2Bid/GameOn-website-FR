@@ -32,7 +32,8 @@ img {
 
 .topnav {
   overflow: hidden;
-  margin: 3.5%;
+  /* margin: 3.5%; */
+  margin: 30px
 }
 .header-logo {
     float: left;
@@ -53,11 +54,6 @@ img {
   font-family: Roboto, sans-serif;
 }
 
-.topnav a:hover {
-  background-color: #ff0000;
-  color: #ffffff;
-  border-radius: 15px;
-}
 
 .topnav a.active {
   background-color: #ff0000;
@@ -71,15 +67,16 @@ img {
 
 
 @media screen and (max-width: 1150px) {
-  .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 25px;
+    top: 20px;
   }
   .topnav a {display: none;}
   .topnav a.icon {
-    float: right;
+    position: absolute;
+    right: 25px;
+    top: 20px;
     display: block;
   }
   .topnav.responsive a {
@@ -519,3 +516,21 @@ footer {
   }
 }
 
+.topnav.responsive .icon{
+  background-color: red;
+  color: white;
+  border-radius: 15%;
+}
+
+.topnav .icon{
+  background-color: transparent;
+}
+
+@media screen and (max-height:750px) {
+  .modal-body{
+    margin-top: 110px;
+  }
+  .close{
+    top: 99px;
+  }
+}

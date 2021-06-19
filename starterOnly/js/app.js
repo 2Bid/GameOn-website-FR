@@ -50,18 +50,36 @@ function validate(){
   const verifMail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   let valide = true
 
-  if (!prenom.value || prenom.value.length <=  1) {
+  if(!prenom.value.trim()){
     errorPrenom.style.display = 'block'
+    errorPrenom.innerText = 'Veuillez entrez un prenom'
+    valide = false
+    prenom.value = ''
+  }
+  if (prenom.value && prenom.value.length <=  1) {
+    errorPrenom.style.display = 'block'
+    errorPrenom.innerText = 'Veuillez entrez un prenom avec 2 caractères ou plus'
     valide = false 
   }
-  
-  if (!nom.value || nom.value.length <= 1) {
+  if (!nom.value.trim()) {
+    errorName.style.display = 'block'
+    errorName.innerText = 'Veuillez entrez un nom'
+    valide = false
+    nom.value = ''
+   }
+  if (nom.value && nom.value.length <= 1) {
    errorName.style.display = 'block'
+   errorName.innerText = 'Veuillez entrez un nom avec 2 caractères ou plus'
    valide = false
   }
-
-  if (!verifMail.test(email.value)) {
+  if (!email.value) {
+    errorEmail.style.display = 'block'
+    errorEmail.innerText = 'Veuillez entre une adresse mail'
+    valide = false
+   }
+  if (email.value && !verifMail.test(email.value)) {
    errorEmail.style.display = 'block'
+   errorEmail.innerText = 'Veuillez entre une adresse mail valide'
    valide = false
   }
 

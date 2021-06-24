@@ -36,6 +36,7 @@ function getCheckedCheckbox(){
   }
   return null
 }
+
 // close modal
 croix.addEventListener('click', closeModal)
 BtnCloseModal.addEventListener('click', closeModal)
@@ -114,41 +115,3 @@ btnSubmit.addEventListener('click', function (e) {
       formValidation.style.display='block'
    }
 })
-
-
-
-
-
-
-
-
-  //parcourir enfant formData check input
-  // const form = formData.children.input.value
-  // console.log(form)
-
-// for (let i = 0; i < formData.length; i++) {
-//   console.log(formData.children[i].value);
-// }
-
-// for ( const input of formData){
-//   const children = input.children
-//   for( const typeinput of children){
-//     if(typeinput.tagName == 'INPUT'){
-//       if(typeinput.type == 'radio'){
-//         if(typeinput.checked){
-//           console.log(typeinput.value)
-//         }
-//       }
-//       else{
-//         console.log(typeinput.value)
-//       }
-//     }
-//   }
-// }
-
-// const children = Array.of(formData).map(input => {
-//  // return Array.of(input.children).find(child => child.tagName == 'INPUT')
-  
-//   return input
-  
-// })
